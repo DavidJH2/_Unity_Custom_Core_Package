@@ -8,7 +8,7 @@ public class MenuTools : MonoBehaviour
     [MenuItem("Tools/Do Something")]
     static void DoSomething()
     {
-        Debug.Log("Doing Something...");
+        Debug.Log("Doing Something Again...");
     }
 
     // Validated menu item.
