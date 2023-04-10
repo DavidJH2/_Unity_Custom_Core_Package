@@ -1,0 +1,16 @@
+{
+  "name": "com.davehopetech.dependency",
+  "displayName": "davehopetech.Daves Tools",
+  "version": "1.0.0",
+  "description": "This tools asset has miscellaneous tools and classes",
+  "unity": "2019.1",
+  "documentationUrl": "https://example.com/",
+  "changelogUrl": "https://example.com/changelog.html",
+  "licensesUrl": "https://example.com/licensing.html",
+  "keywords": [
+    "keyword1",
+    "keyword2",
+    "keyword3"
+  ],
+  "author": "David"
+}
