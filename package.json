@@ -1,8 +1,8 @@
 {
-  "name": "com.davehopetech.dependency",
+  "name": "com.davehopetech.core.dependency",
   "displayName": "Dave's Custom Core",
-  "version": "1.0.1",
-  "description": "This tools asset has miscellaneous tools and classes",
+  "version": "1.0.2",
+  "description": "This my VR Core asset",
   "unity": "2019.1",
   "documentationUrl": "https://example.com/",
   "changelogUrl": "https://example.com/changelog.html",
