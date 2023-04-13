@@ -1,7 +1,7 @@
 {
   "name": "com.davehopetech.core.dependency",
   "displayName": "Dave's Custom Core",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "This my VR Core asset",
   "unity": "2019.1",
   "documentationUrl": "https://example.com/",
@@ -11,7 +11,8 @@
     "com.unity.xr.management": "4.3.3",
     "com.unity.xr.openxr": "1.6.0",
 	"com.unity.xr.interaction.toolkit": "2.2.0",
-	"com.unity.render-pipelines.universal": "12.1.10"
+	"com.unity.render-pipelines.universal": "12.1.10",
+	"com.unity.animation.rigging": "1.1.1"
   },
   "keywords": [
     "keyword1",
