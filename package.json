@@ -7,6 +7,10 @@
   "documentationUrl": "https://example.com/",
   "changelogUrl": "https://example.com/changelog.html",
   "licensesUrl": "https://example.com/licensing.html",
+  "dependencies": {
+    "com.unity.xr.management": "4.3.3",
+    "com.unity.xr.openxr": "1.6.0"
+  },
   "keywords": [
     "keyword1",
     "keyword2",
