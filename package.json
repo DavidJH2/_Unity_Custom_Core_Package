@@ -9,7 +9,8 @@
   "licensesUrl": "https://example.com/licensing.html",
   "dependencies": {
     "com.unity.xr.management": "4.3.3",
-    "com.unity.xr.openxr": "1.6.0"
+    "com.unity.xr.openxr": "1.6.0",
+	"com.unity.render-pipelines.universal": "12.1.10",
   },
   "keywords": [
     "keyword1",
