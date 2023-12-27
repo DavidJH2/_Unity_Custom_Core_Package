@@ -10,18 +10,19 @@ using UnityEngine.Serialization;
 
 public class MirrorHand : MonoBehaviour
 {
-    [SerializeField] internal Transform           target;
+    [SerializeField] public   Transform           target;
     [SerializeField] internal Transform           interactionPoint;
     [SerializeField] internal bool                active = true;
     [SerializeField] private  float               torqueCoeff;
     [SerializeField] private  bool                debug;
     [SerializeField] internal InputActionProperty grabValue;
+    [SerializeField] internal InputActionProperty triggerValue;
     
     internal bool grabStarted;
     internal bool grabStopped;
+    public   bool triggerPulledThisFrame;
 
-    private   bool                        _lastIsGrabbing;
-    private   Rigidbody                   rb;
+    private Rigidbody rb;
 
     protected DHTEventService dhtEventService;
     protected DHTUpdateDebugMiscEvent     DebugMiscEvent;
@@ -56,7 +57,7 @@ public class MirrorHand : MonoBehaviour
     void MoveHandToTargetOrientation()
     {
         var vel = (target.position - transform.position) / Time.fixedDeltaTime;
-        vel.Clamp(0,3);
+        vel.Clamp(0,1);
         rb.velocity = vel; 
         
         var deltaRot = target.rotation * Quaternion.Inverse(transform.rotation);
@@ -78,10 +79,15 @@ public class MirrorHand : MonoBehaviour
     }
 
 
-    public float GrabValue => grabValue.action.ReadValue<float>();
-    internal bool IsGrabbing =>  GrabValue > .1; 
+    public float GrabValue     => grabValue.action.ReadValue<float>();
+    public float TriggerValue  => triggerValue.action?.ReadValue<float>() ?? 0;
+    public bool  IsGrabbing    =>  GrabValue > .3;
+    public bool  TriggerPulled => TriggerValue > .3;
 
 		
+    private bool      _lastIsGrabbing;
+    private bool      _lastTriggerPulled;
+    
     public void SetGrabFlags()
     {
         /*
@@ -92,7 +98,9 @@ public class MirrorHand : MonoBehaviour
         */
         grabStarted = (IsGrabbing && !_lastIsGrabbing);
         grabStopped = (!IsGrabbing && _lastIsGrabbing);
-
         _lastIsGrabbing = IsGrabbing;
+
+        triggerPulledThisFrame = (TriggerPulled && !_lastTriggerPulled);
+        _lastTriggerPulled     = TriggerPulled;
     }
 }

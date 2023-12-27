@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using com.davidhopetech.core.Run_Time.DHTInteraction;
 using com.davidhopetech.core.Run_Time.DTH.Interaction.States;
 using com.davidhopetech.core.Run_Time.DTH.Scripts;
 using com.davidhopetech.core.Run_Time.DTH.Scripts.Interaction;
@@ -10,7 +9,7 @@ using UnityEngine.Animations;
 namespace com.davidhopetech.core.Run_Time.Scripts.Interaction.States
 {
 	[Serializable]
-	class DHTInteractionIdleState : DHTInteractionState
+	public class DHTInteractionIdleState : DHTInteractionState
 	{
 		protected override void UpdateStateImpl()
 		{
@@ -34,9 +33,15 @@ namespace com.davidhopetech.core.Run_Time.Scripts.Interaction.States
 			var interactorPos = MirrorHand.target.transform.position;
 			var interactables = Controller.Interactables;
 
-			var orderedInteractables = interactables.OrderBy(o => o.Dist(interactorPos));
+			if (interactables.Count == 0)
+			{
+				return;
+			}
+
+		var orderedInteractables = interactables.OrderBy(o => o.Dist(interactorPos));
 
 			var interactable = orderedInteractables.First();
+			
 
 			if (interactable.InRange(interactorPos))
 			{
@@ -82,6 +87,7 @@ namespace com.davidhopetech.core.Run_Time.Scripts.Interaction.States
 	
 		private void ChangeToSpatialLockState(DHTSpatialLock spatialLock)
 		{
+			//return;
 			Debug.Log("######  Change to Spatial Lock State  ######");
 			DebugValue1Event.Invoke("###  Change to Spatial Lock State  ###");
 

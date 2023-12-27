@@ -1,15 +1,12 @@
 using System;
-using com.davidhopetech.core.Run_Time.DTH.Interaction;
-using com.davidhopetech.core.Run_Time.Scripts.Interaction;
 using com.davidhopetech.core.Run_Time.Scripts.Service_Locator;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace com.davidhopetech.core.Run_Time.DHTInteraction
+namespace com.davidhopetech.core.Run_Time.Scripts.Interaction.States
 {
 
 	[Serializable]
-	abstract class DHTInteractionState : MonoBehaviour
+	public abstract class DHTInteractionState : MonoBehaviour
 	{
 		protected DHTUpdateDebugMiscEvent     DebugMiscEvent;
 		protected DHTUpdateDebugTeleportEvent TeleportEvent;
@@ -18,14 +15,14 @@ namespace com.davidhopetech.core.Run_Time.DHTInteraction
 		protected DHTEventService     dhtEventService;
 		protected DHTPlayerController Controller;
 
-		internal MirrorHand MirrorHand;
+		public   MirrorHand MirrorHand;
 		internal GameObject MirrorHandGO;
 
-		internal DHTInteractionStateRef selfHandle;
+		public DHTInteractionStateRef selfHandle;
 		internal Animator               handAnimator;
 
 		
-		internal void Awake()
+		public void Awake()
 		{
 			Controller   = GetComponent<DHTPlayerController>();
 			dhtEventService = DHTServiceLocator.dhtEventService;
